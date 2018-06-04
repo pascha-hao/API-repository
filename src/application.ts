@@ -1,17 +1,23 @@
 import {ApplicationConfig} from '@loopback/core';
 import {RestApplication, RestServer, RestBindings} from '@loopback/rest';
 import {MySequence} from './sequence';
+import {Class, Repository, RepositoryMixin, juggler} from '@loopback/repository';
 
 /* tslint:disable:no-unused-variable */
 // Binding and Booter imports are required to infer types for BootMixin!
 import {BootMixin, Booter, Binding} from '@loopback/boot';
 /* tslint:enable:no-unused-variable */
 
-export class GoldenThreadApiApplication extends BootMixin(RestApplication) {
+export class GoldenThreadApiApplication extends BootMixin(RepositoryMixin(RestApplication)) {
   constructor(options?: ApplicationConfig) {
     super(options);
 
     // Set up the custom sequence
+    var dataSourceConfig = new juggler.DataSource({
+      name: 'db',
+      connector: "memory"
+    });
+    this.dataSource(dataSourceConfig); 
     this.sequence(MySequence);
 
     this.projectRoot = __dirname;
