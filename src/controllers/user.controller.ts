@@ -1,6 +1,6 @@
 import { repository } from '@loopback/repository';
 import { UserRepository } from '../repositories/user.repository';
-import { post, get, requestBody } from '@loopback/rest';
+import { post, get, requestBody, param } from '@loopback/rest';
 import { User } from '../models/user'; 
 import { Login } from '../models/login';
 
@@ -17,9 +17,23 @@ export class UserController {
         return await this.userRepo.find();
     }
 
+    @get('/users/{user_id}/donations')
+    async getDonationsByUserId(
+        @param.path.number('user_id') userId: number,
+        @param.query.date('date_from') dateFrom: Date
+    ) {
+        console.log(userId);
+        console.log(dateFrom);
+    
+    }
+
     @post("/login")
     async login(@requestBody() login: Login) {
-        var users = await this.userRepo.find();
+        var users = await this.userRepo.find({
+            where: {
+                email:login.email
+            }
+        });
         var username = login.username;
         var password = login.password;
         var i;

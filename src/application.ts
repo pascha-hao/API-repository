@@ -15,7 +15,12 @@ export class GoldenThreadApiApplication extends BootMixin(RepositoryMixin(RestAp
     // Set up the custom sequence
     var dataSourceConfig = new juggler.DataSource({
       name: 'db',
-      connector: "memory"
+      connector: "loopback-connector-mysql",
+      host: 'localhost',
+      port: 3306,
+      database: 'golden_thread',
+      user: 'root',
+      password: 'Iloveparakeets2017!'
     });
     this.dataSource(dataSourceConfig); 
     this.sequence(MySequence);
@@ -40,4 +45,6 @@ export class GoldenThreadApiApplication extends BootMixin(RepositoryMixin(RestAp
     console.log(`Server is running at http://127.0.0.1:${port}`);
     console.log(`Try http://127.0.0.1:${port}/ping`);
   }
+
+
 }

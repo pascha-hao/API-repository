@@ -27,8 +27,16 @@ let UserController = class UserController {
     async getAllUsers() {
         return await this.userRepo.find();
     }
+    async getDonationsByUserId(userId, dateFrom) {
+        console.log(userId);
+        console.log(dateFrom);
+    }
     async login(login) {
-        var users = await this.userRepo.find();
+        var users = await this.userRepo.find({
+            where: {
+                email: login.email
+            }
+        });
         var username = login.username;
         var password = login.password;
         var i;
@@ -56,6 +64,14 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "getAllUsers", null);
+__decorate([
+    rest_1.get('/users/{user_id}/donations?{date_from}'),
+    __param(0, rest_1.param.path.number('user_id')),
+    __param(1, rest_1.param.query.date('date_from')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Date]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "getDonationsByUserId", null);
 __decorate([
     rest_1.post("/login"),
     __param(0, rest_1.requestBody()),

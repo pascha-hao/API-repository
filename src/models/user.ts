@@ -1,4 +1,4 @@
-import {Entity, property, model} from '@loopback/repository';
+import {Entity, property, model, DateType} from '@loopback/repository';
 
 @model()
 export class User extends Entity {
@@ -33,4 +33,18 @@ export class User extends Entity {
         type: 'string'
     })
     password: string;
+
+    @property({
+        type: 'string'
+    })
+    donations: string;
+
+    @property({
+        type: 'dateString'
+    })
+    date: Date;
+
+    getId() {
+        return this.id;
+    }
 }

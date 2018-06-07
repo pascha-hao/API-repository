@@ -6,4 +6,6 @@ export declare class User extends Entity {
     Email: string;
     Address: string;
     password: string;
+    donations: string;
+    getId(): number | undefined;
 }
