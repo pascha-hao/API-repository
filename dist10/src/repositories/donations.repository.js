@@ -15,16 +15,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const repository_1 = require("@loopback/repository");
 const core_1 = require("@loopback/core");
 const loopback_datasource_juggler_1 = require("loopback-datasource-juggler");
-const Charity_1 = require("../models/Charity");
-let CharityRepository = class CharityRepository extends repository_1.DefaultCrudRepository {
+const donations_1 = require("../models/donations");
+let DonationsRepository = class DonationsRepository extends repository_1.DefaultCrudRepository {
     constructor(datasource) {
-        super(Charity_1.Charity, datasource);
+        super(donations_1.donations, datasource);
         this.datasource = datasource;
     }
 };
-CharityRepository = __decorate([
+DonationsRepository = __decorate([
     __param(0, core_1.inject('datasources.db')),
     __metadata("design:paramtypes", [loopback_datasource_juggler_1.DataSource])
-], CharityRepository);
-exports.CharityRepository = CharityRepository;
-//# sourceMappingURL=charities.repository.js.map
+], DonationsRepository);
+exports.DonationsRepository = DonationsRepository;
+//# sourceMappingURL=donations.repository.js.map

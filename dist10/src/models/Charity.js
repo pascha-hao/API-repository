@@ -8,23 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const repository_1 = require("@loopback/repository");
-const core_1 = require("@loopback/core");
-const loopback_datasource_juggler_1 = require("loopback-datasource-juggler");
-const Charity_1 = require("../models/Charity");
-let CharityRepository = class CharityRepository extends repository_1.DefaultCrudRepository {
-    constructor(datasource) {
-        super(Charity_1.Charity, datasource);
-        this.datasource = datasource;
-    }
+let Charity = class Charity extends repository_1.Entity {
 };
-CharityRepository = __decorate([
-    __param(0, core_1.inject('datasources.db')),
-    __metadata("design:paramtypes", [loopback_datasource_juggler_1.DataSource])
-], CharityRepository);
-exports.CharityRepository = CharityRepository;
-//# sourceMappingURL=charities.repository.js.map
+__decorate([
+    repository_1.property({
+        type: 'number',
+        required: true,
+        id: true
+    }),
+    __metadata("design:type", Number)
+], Charity.prototype, "id", void 0);
+__decorate([
+    repository_1.property({
+        type: 'string',
+        required: true
+    }),
+    __metadata("design:type", String)
+], Charity.prototype, "name", void 0);
+Charity = __decorate([
+    repository_1.model()
+], Charity);
+exports.Charity = Charity;
+//# sourceMappingURL=Charity.js.map

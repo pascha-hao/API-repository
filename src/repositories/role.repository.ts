@@ -1,14 +1,14 @@
 import { DefaultCrudRepository } from '@loopback/repository';
 import { inject } from '@loopback/core';
 import { DataSource } from 'loopback-datasource-juggler';
-import { Charity } from '../models/Charity';
+import { role } from '../models/role';
 
 
-export class CharityRepository extends DefaultCrudRepository <
-    Charity, 
-    typeof Charity.prototype.id
+export class RoleRepository extends DefaultCrudRepository <
+    role, 
+    typeof role.prototype.id
 > {
     constructor(@inject('datasources.db') protected datasource: DataSource){ 
-        super(Charity, datasource); 
+        super(role, datasource); 
     }
 }

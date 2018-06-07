@@ -1,7 +1,7 @@
 import {Entity, property, model} from '@loopback/repository';
 
 @model()
-export class payment extends Entity {
+export class projects extends Entity {
     @property({
         type: 'number',
         required: true,
@@ -10,27 +10,24 @@ export class payment extends Entity {
     id?: number; 
 
     @property({
-        type: 'number',
+        type: 'string',
         required: true
     })
-    user_id: number;
-
-    @property({
-        type: 'number',
-        required: true
-    })
-    card_number: number;
+    user_id: string;
 
     @property({
         type: 'string',
         required: true
     })
-    expiration_date: string;
+    charity_id: string;
 
     @property({
-        type: 'number',
+        type: 'string',
         required: true
     })
-    bank: number;
+    amount: string;
+
     
+    
+
 }

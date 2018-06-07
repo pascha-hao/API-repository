@@ -4,7 +4,7 @@ import { CharityRepository } from '../repositories/charities.repository'
 import { post, get, requestBody, param } from '@loopback/rest';
 import { User } from '../models/user'; 
 import { Login } from '../models/login';
-import { Charity } from '../models/charities';
+import { Charity } from '../models/Charity';
 
 export class CharityController { 
     constructor(@repository(CharityRepository.name) private charitiesRepo: CharityRepository) {}

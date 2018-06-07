@@ -4,9 +4,20 @@ import {Entity, property, model, DateType} from '@loopback/repository';
 export class User extends Entity {
     @property({
         type: 'number',
+        required: true,
         id: true
     })
     id?: number; 
+
+    @property({
+        type: 'string'
+    })
+    username: string;
+
+    @property({
+        type: 'string'
+    })
+    password: string;
 
     @property({
         type: 'string',
@@ -17,32 +28,17 @@ export class User extends Entity {
     @property({
         type: 'string'
     })
-    username: string;
+    address: string;
 
     @property({
         type: 'string'
     })
-    Email: string;
-
-    @property({
-        type: 'string'
-    })
-    Address: string;
-
-    @property({
-        type: 'string'
-    })
-    password: string;
+    email: string;
 
     @property({
         type: 'string'
     })
     donations: string;
-
-    @property({
-        type: 'dateString'
-    })
-    date: Date;
 
     getId() {
         return this.id;

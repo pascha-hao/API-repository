@@ -1,6 +1,8 @@
 import { Entity } from '@loopback/repository';
-export declare class Charity extends Entity {
+export declare class payment extends Entity {
     id?: number;
-    name: string;
-    charity_id: number;
+    user_id: number;
+    card_number: number;
+    expiration_date: string;
+    bank: number;
 }
