@@ -20,14 +20,11 @@ exports.up = function(db, callback) {
       type: 'int', 
       primaryKey: true 
     }, 
-    admin: {
-      type: 'boolean'
+    user_id: {
+      type: 'int'
     },
-    base: {
-      type: 'boolean'
-    },
-    user: {
-      type: 'boolean'
+    role: {
+      type: 'string'
     }
   }, callback);
   

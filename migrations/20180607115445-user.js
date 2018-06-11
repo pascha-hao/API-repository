@@ -20,7 +20,11 @@ exports.up = function(db, callback) {
       type: 'int', 
       primaryKey: true 
     }, 
-    full_name: {
+    first_name: {
+      type: 'string',
+      length: 40
+    },
+    last_name: {
       type: 'string',
       length: 40
     },

@@ -31,7 +31,7 @@ exports.up = function(db, callback) {
 };
 
 exports.down = function(db) {
-  db.dropTable('user_role_map')
+  //db.dropTable('user_role_map')
   
 };
 
